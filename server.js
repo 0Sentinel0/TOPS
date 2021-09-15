@@ -17,7 +17,8 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 // DB Config:
-const db = 'mongodb+srv://dbuser:SHY816@tops-cluster.0t8db.mongodb.net/TOPS-Cluster?retryWrites=true&w=majority'
+// const db = 'mongodb+srv://dbuser:SHY816@tops-cluster.0t8db.mongodb.net/TOPS-Cluster?retryWrites=true&w=majority'
+const db = 'mongodb+srv://hengyushi:yOXAfbN073HcrQq2@tops.7c1sr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 5000
 
 mongoose.connect(db)
