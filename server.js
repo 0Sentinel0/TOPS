@@ -10,7 +10,7 @@ app.use('/api/activities', activities)
 
 // For Deploy
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(client/build))
+  app.use(express.static('client/build'))
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
@@ -27,7 +27,7 @@ mongoose.connect(db)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
-
+// Deployed Link: https://team-onb-pro-sup.herokuapp.com/
 // const CONNECTION_URL = 'mongodb+srv://dbuser:SHY816@tops-cluster.0t8db.mongodb.net/TOPS-Cluster?retryWrites=true&w=majority'
 
 // mongoose.connect(CONNECTION_URL)
