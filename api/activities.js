@@ -1,5 +1,5 @@
-import Express from "express";
-import Activity from "../models/Activitiy.js";
+import Express from "express"
+import Activity from "../models/Activitiy.js"
 
 const router = Express.Router()
 
@@ -13,7 +13,8 @@ router.get('/', (req, res) => {
 // POST api/activities
 router.post('/', (req, res) => {
   const newActivity = new Activity({
-    name: req.body.name
+    name: req.body.name,
+    description: req.body.description
   })
 
   newActivity.save()
