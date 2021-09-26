@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import path from 'path'
+import { fileURLToPath } from "url"
 import activities from './api/activities.js'
 import goals from './api/goals.js'
 
@@ -17,8 +18,10 @@ app.use('/api/activities', activities)
 app.use('/api/goals', goals)
 
 // For Deploy
+process.env.NODE_ENV = 'production'
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
+  const __dirname = path.dirname(fileURLToPath(import.meta.url))
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })

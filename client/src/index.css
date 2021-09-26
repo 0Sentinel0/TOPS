@@ -16,7 +16,8 @@
 }
 
 #home-buttons {
-  text-align: center;
+  width: 260px;
+  margin: 0 auto;
 }
 
 #home-buttons p {

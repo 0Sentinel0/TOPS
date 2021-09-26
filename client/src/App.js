@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Navbar from './components/navbar/navbar';
 import Sedule from './components/schedule/schedule';
 import Home from './components/home/home';
-import OrgForm from './components/forms/orgForm';
+import InfoForm from './components/forms/form';
 import Goals from './components/goals/goals';
 import Activity from './components/activities/activities';
 
@@ -19,7 +19,7 @@ function App() {
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/Schedule" component={Sedule} />
-            <Route path="/OrgInfo" component={OrgForm} />
+            <Route path="/OrgInfo" component={InfoForm} />
             <Route path="/Goals" component={Goals} />
             <Route path="/Activities" component={Activity} />
           </Switch>
