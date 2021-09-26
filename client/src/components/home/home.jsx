@@ -17,12 +17,14 @@ class Home extends Component {
             Welcome to Team Onboarding Process Support App!
           </h5>
           <div id="home-buttons" className="mt-5">
-            <button className="btn btn-success" onClick={this.newProcess}>
-              New Onboarding Process
+            <button className="btn btn-success d-block mx-auto" onClick={this.newProcess}>
+              <i className="bi bi-plus-circle"></i> 
+              <span className="ms-2">New Onboarding Process</span>
             </button>
-            <p>Or</p>
-            <button className="btn btn-primary" >
-              Browse Schdeules
+
+            <button className="btn btn-primary d-block mx-auto mt-3 mt-lg-4">
+              <i className="bi bi-card-list"></i>
+              <span className="ms-2">View Ongoing Schdeule</span>
             </button>
           </div>
         </div>

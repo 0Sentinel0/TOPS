@@ -1,10 +1,9 @@
+/* Home Page */
 #home-wrap {
   width: 100%;
 }
 
 #honme-inner-wrap {
-  /* border: 1px solid #cccccc; */
-  border-radius: 5px;
   width: 90%;
   height: 300px;
   margin: 0 auto;
@@ -24,6 +23,55 @@
   margin: 10px 0;
 }
 
+#home-buttons button {
+  width: 250px;
+}
+
+/* --- Goal & Activity Page --- */
+.info-pane {
+  width: 100% !important;
+  margin-top: 15px;
+}
+
+.info-pane .row {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  justify-content: center;
+}
+
+.list {
+  max-height: 230px;
+  margin-top: 20px;
+  overflow-y: auto;
+}
+
+.list-group-item b {
+  color: #616161;
+}
+
+.new-item-form button {
+  margin-top: 20px;
+}
+
+#dialog-wrap {
+  width: 90%;
+  height: 380px;
+  position: fixed;
+  left: auto;
+  top: 110px;
+  z-index: 9;
+  background-color: #ececec;
+  padding: 0;
+}
+
+#dialog-close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* ------ Media Query ------- */
+
 @media screen and (max-width: 576px) {
   #home-welcome {
     font-size: 10px;
@@ -34,18 +82,64 @@
     padding: 0;
     margin-top: 35px;
   }
+
+  .info-pane ul {
+    padding: 2px;
+  }
+
+  .new-item-form {
+    padding-top: 30px;
+  }
 }
 
-@media screen and (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .new-item-form {
+    padding-top: 30px;
+  }
+}
+ 
+@media screen and (min-width: 768px) and (max-width: 992px) {
   #honme-inner-wrap {
     width: 80%;
     margin-top: 60px;
+  }
+
+  .info-pane {
+    margin: 50px auto 0 auto;
+  }
+
+  .list{
+    max-height: 280px;
+  }
+
+  #dialog-wrap{
+    width: 88%;
+    top: 150px;
   }
 }
 
 @media screen and (min-width: 992px) {
   #honme-inner-wrap {
     width: 50%;
-    margin-top: 80px;
+    margin-top: 50px;
+  }
+
+  .info-pane {
+    margin: 50px auto 0 auto;
+  }
+
+  .card{
+    max-height: 360px;
+  }
+
+  #dialog-wrap{
+    width: 50%;
+    top: 180px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .info-pane {
+    margin: 60px auto 0 auto;
   }
 }

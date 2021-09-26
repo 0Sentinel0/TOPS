@@ -2,16 +2,19 @@ import express from 'express'
 import mongoose from 'mongoose'
 import path from 'path'
 import activities from './api/activities.js'
+import goals from './api/goals.js'
 
 const app = express();
 
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
 app.use(express.json());
 app.use('/api/activities', activities)
+app.use('/api/goals', goals)
 
 // For Deploy
 if(process.env.NODE_ENV === 'production') {
@@ -21,9 +24,10 @@ if(process.env.NODE_ENV === 'production') {
   })
 }
 
-// DB Config:
+// DB Config (Mine Backup):
 // const db = 'mongodb+srv://dbuser:SHY816@tops-cluster.0t8db.mongodb.net/TOPS-Cluster?retryWrites=true&w=majority'
 const db = 'mongodb+srv://hengyushi:yOXAfbN073HcrQq2@tops.7c1sr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
 const PORT = process.env.PORT || 5000
 
 mongoose.connect(db)
@@ -31,6 +35,8 @@ mongoose.connect(db)
   .catch(err => console.log(err))
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
+
 
 // Deployed Link: https://team-onb-pro-sup.herokuapp.com/
 // const CONNECTION_URL = 'mongodb+srv://dbuser:SHY816@tops-cluster.0t8db.mongodb.net/TOPS-Cluster?retryWrites=true&w=majority'

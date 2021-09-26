@@ -3,14 +3,14 @@ import Activity from "../models/Activitiy.js"
 
 const router = Express.Router()
 
-// GET api/activities
+// GET api/activities/
 router.get('/', (req, res) => {
   Activity.find()
     .sort({ date: -1 })
     .then(activities => res.json(activities))
 })
 
-// POST api/activities
+// POST api/activities/
 router.post('/', (req, res) => {
   const newActivity = new Activity({
     name: req.body.name,
