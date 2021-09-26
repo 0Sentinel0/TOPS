@@ -12,7 +12,7 @@ class Goals extends Component {
   }
  
   componentDidMount() {
-    axios.get('http://localhost:5000/api/goals/')
+    axios.get('/api/goals/')
       .then(res => {
         const data = this.addLable(res.data)
         this.setState({goalsList: data})
@@ -29,7 +29,7 @@ class Goals extends Component {
         {...item, type: 'goal'}
       )
     })
-    console.log(newData)
+    // console.log(newData)
     return newData
   }
 
@@ -43,7 +43,7 @@ class Goals extends Component {
     e.preventDefault()
     let name = { name: this.state.newGoalName }
     console.log(name)
-    axios.post('http://localhost:5000/api/goals/', name)
+    axios.post('api/goals/', name)
       .then(res => {
         this.setState({ goalsList: [...this.state.goalsList, name] })
         alert(`Success! New Goal Created`)
@@ -56,7 +56,7 @@ class Goals extends Component {
   }
 
   deleteItem = id => {
-    axios.delete('http://localhost:5000/api/goals/' + id)
+    axios.delete('api/goals/' + id)
       .then(res => {
         console.log(res)
         const newData = this.state.goalsList.filter(goal => goal._id !== id)

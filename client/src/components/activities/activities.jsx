@@ -9,7 +9,7 @@ class Activity extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/api/activities/')
+    axios.get('/api/activities/')
       .then(res => {
         this.setState({activityList: res.data})
         console.log(res.data)
@@ -28,7 +28,7 @@ class Activity extends Component {
   createActivity = e => {
     e.preventDefault()
     const name = { name: this.state.newActivityName }
-    axios.post('http://localhost:5000/api/activities/', name)
+    axios.post('/api/activities/', name)
       .then(res => {
         this.setState({ activityList: [...this.state.activityList, name] })
         alert('Success! New Activity Created')
@@ -41,7 +41,7 @@ class Activity extends Component {
   }
 
   deleteItem = id => {
-    axios.delete('http://localhost:5000/api/activities/' + id)
+    axios.delete('/api/activities/' + id)
       .then(res => {
         console.log(res)
         const newData = this.state.activityList.filter(act => act._id !== id)
