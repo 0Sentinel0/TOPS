@@ -1,7 +1,7 @@
 import React from 'react'
 
 const GenericCardItem = ({ item, onDelete, onClick }) => {
-  return (
+  return(
     <li className="list-group-item" key={item._id}>
       <div className="row w-100">
         <div className="col-11 p-0">

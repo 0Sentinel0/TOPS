@@ -1,49 +1,86 @@
 import React, { Component } from 'react'
+import './form.css'
+import GenericIput from './input'
 
 class InfoForm extends Component {
+  // {
+  //   inputName: '',
+  //   label: '',
+  //   descrip: '',
+  //   type: 'text'
+  // },
+  state = {
+    orgForm: [
+      {
+        inputName: 'manager',
+        label: 'Who is the team leader the team manager reports to?',
+        type: 'text'
+      },
+      {
+        inputName: 'chart',
+        label: 'Where is an organisational chart available?',
+        type: 'text'
+      },
+      {
+        inputName: 'induction',
+        label: 'Is there an Induction program for new employees',
+        descrip: 'If so how/when can this be accessed?',
+        type: 'text'
+      },
+       {
+        inputName: 'funds',
+        label: 'What funds are available for the onboarder to attend formal courses?',
+        type: 'text'
+      },
+      {
+        inputName: 'mentor',
+        label: 'Is there a qualified suitable mentor available for the new employee?',
+        type: 'checkbox'
+      },
+
+    ],
+    teamForm: [
+      {
+        inputName: 'teamLeader',
+        label: 'Who is the team leader',
+        descrip: '',
+        type: 'text'
+      },
+      {
+        inputName: '',
+        label: 'What are the main tasks expected of the new team member?',
+        descrip: '',
+        type: 'text'
+      },
+      {
+        inputName: '',
+        label: 'What are the main programming languages the team uses?',
+        descrip: '',
+        type: 'text'
+      },
+    ]
+  }
+
+  inputHandler = (inputValue, name) => {
+    // console.log(inputValue)
+    console.log(name)
+  }
 
   render() {
     return (
-      <div>
-        
-        <div class="accordion mt-5" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <b>Organisation Infomation</b>
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-               <p>1</p>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <b>Team Information</b>
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <p>2</p>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Onboarder Information
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-               <p>3</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="formpage-outerwrap">
+        <h3>Capture Information</h3>
+        <hr />
+        <p>Please fill in the following form to generate new onboarding schedule:</p>
+
+        {/* Org Form */}
+        <form>
+          {
+            this.state.orgForm.map(input => (
+              <GenericIput label={input.label} inputName={input.inputName} type={input.type} descrip={input.descrip} onChange={this.inputHandler}/>
+            ))
+          }
+        </form>
       </div>
     )
   }

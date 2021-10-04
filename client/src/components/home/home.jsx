@@ -17,7 +17,7 @@ class Home extends Component {
             Welcome to Team Onboarding Process Support App!
           </h5>
           <div id="home-buttons" className="mt-5">
-            <a href="/OrgInfo" className="btn btn-success d-block mx-auto" >
+            <a href="/Planner" className="btn btn-success d-block mx-auto" >
               <i className="bi bi-plus-circle"></i> 
               <span className="ms-2">New Onboarding Process</span>
             </a>

@@ -29,7 +29,6 @@ class Goals extends Component {
         {...item, type: 'goal'}
       )
     })
-    // console.log(newData)
     return newData
   }
 
