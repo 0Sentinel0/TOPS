@@ -35,12 +35,12 @@ class Planner extends Component {
         <h3>Onboarding Planner</h3>
         <hr />
 
-        <div className="row">
+        <div className="row w-100">
           <div id="goals-list-wrap" className="col-12 col-sm-6">
-            <section className="card-wrap">
-              <h3>
+            <section className="planner-card card-wrap">
+              <h4>
                 <i className="bi bi-trophy"></i> Goals
-              </h3>
+              </h4>
               <div className="list card">
                 <ul className="list-group list-group-flush">
                   {
@@ -55,19 +55,35 @@ class Planner extends Component {
               </div>
             </section>
           </div>
-  
+
           <div id="acts-list-wrap" className="col-12 col-sm-6">
-            <section className="card-wrap">
-              <h3>
-                <i className="bi bi-joystick"></i> Activities
-              </h3>
+            <section className="planner-card card-wrap">
+              <div className="row">
+                <h4 className="col-7 col-md-6 col-lg-7">
+                  <i className="bi bi-joystick"></i> Activities
+                </h4>
+                <div id="label" className="col-5 col-md-6 col-lg-5">
+                    <b>Contribution level:</b> <br />
+                    <i class="bi bi-star me-4"></i>
+                    High
+                    <br />
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star"></i>
+                    <i class="bi bi-star me-2"></i>
+                    Very High
+                </div>
+              </div>
+
               <div className="list card">
                 <ul className="list-group list-group-flush">
                   {
                     activityList.map(activity => {
                       return(
                         <li key={activity._id} className="list-group-item">
-                          {activity.name}
+                          {activity.name} 
+                          <i class="bi bi-star ms-2"></i>
+                          <i class="bi bi-star"></i>
+                          <i class="bi bi-star"></i>
                         </li>
                       )
                     })
