@@ -64,12 +64,12 @@ class Planner extends Component {
                 </h4>
                 <div id="label" className="col-5 col-md-6 col-lg-5">
                     <b>Contribution level:</b> <br />
-                    <i class="bi bi-star me-4"></i>
+                    <i className="bi bi-star-fill me-4"></i>
                     High
                     <br />
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star"></i>
-                    <i class="bi bi-star me-2"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill me-2"></i>
                     Very High
                 </div>
               </div>
@@ -81,9 +81,19 @@ class Planner extends Component {
                       return(
                         <li key={activity._id} className="list-group-item">
                           {activity.name} 
-                          <i class="bi bi-star ms-2"></i>
-                          <i class="bi bi-star"></i>
-                          <i class="bi bi-star"></i>
+                          {
+                            activity.contribu === "on" ?
+                            <span className="ms-3">
+                              <i className="bi bi-star-fill"></i>
+                              <i className="bi bi-star-fill"></i>
+                              <i className="bi bi-star-fill"></i>
+                            </span>
+                            :
+                            <span className="ms-3">
+                              <i className="bi bi-star-fill"></i>
+                            </span>
+                          }
+                          
                         </li>
                       )
                     })

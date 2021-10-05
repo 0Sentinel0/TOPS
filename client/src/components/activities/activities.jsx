@@ -5,6 +5,7 @@ import GenericCardItem from './item.jsx'
 class Activity extends Component {
   state = {
     newActivityName: "",
+    contribu: "off",
     activityList: []
   }
 
@@ -19,18 +20,16 @@ class Activity extends Component {
       })
   }
 
-  formHandler = activityName => {
-    this.setState({
-      newActivityName: activityName
-    })
-  }
-
   createActivity = e => {
     e.preventDefault()
-    const name = { name: this.state.newActivityName }
-    axios.post('/api/activities/', name)
+    const data = {
+      name: this.state.newActivityName,
+      contribu: this.state.contribu
+    }
+    console.log(data)
+    axios.post('/api/activities/', data)
       .then(res => {
-        this.setState({ activityList: [...this.state.activityList, name] })
+        this.setState({ activityList: [...this.state.activityList, data] })
         alert('Success! New Activity Created')
         console.log(res)
       })
@@ -47,6 +46,19 @@ class Activity extends Component {
         const newData = this.state.activityList.filter(act => act._id !== id)
         this.setState({activityList: newData})
       })
+  }
+
+  nameHandler = activityName => {
+    this.setState({
+      newActivityName: activityName
+    })
+  }
+
+  contribuHandler = veryHigh => {
+    this.setState({
+      contribu: veryHigh
+    })
+    console.log(this.state.contribu)
   }
 
   render() {
@@ -71,8 +83,16 @@ class Activity extends Component {
             <h3><i className="bi bi-plus-square"></i> New Activity</h3>
             <hr />
             <form onSubmit={this.createActivity}>
-              <label htmlFor="activityName">Activity Name</label>
-              <input onChange={(e) => this.formHandler(e.target.value)} id="activityName" type="text" className="form-control mt-2" />
+              <div>
+                <label htmlFor="activityName">Activity Name</label>
+                <input onChange={(e) => this.nameHandler(e.target.value)} id="activityName" type="text" className="form-control" />
+              </div>
+              
+              <div className="form-check form-switch my-3">
+                <label className="form-check-label" htmlFor="activityContibu">Very High Contribution</label>
+                <input onChange={(e) => this.contribuHandler(e.target.value)} className="form-check-input" type="checkbox" id="activityContibu" />
+              </div>
+              
               <button type="submit" className="btn btn-success d-block mx-auto">Create Activity</button>
             </form>
           </section>

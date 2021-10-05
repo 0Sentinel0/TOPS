@@ -56,6 +56,11 @@ h4 {
     margin-top: 0;
   }
 
+  #acts-list-wrap .list {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
   #label, h4 {
     padding: 0;
   }
