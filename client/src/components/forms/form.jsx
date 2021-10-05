@@ -69,7 +69,7 @@ class InfoForm extends Component {
   render() {
     return (
       <div id="formpage-outerwrap">
-        <h3>Capture Information</h3>
+        <h3>Organisation Information</h3>
         <hr />
         <p>Please fill in the following form to generate new onboarding schedule:</p>
 

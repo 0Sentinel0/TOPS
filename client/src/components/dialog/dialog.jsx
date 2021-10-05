@@ -7,7 +7,7 @@ const Dialog = ({data, onClose}) => {
       <div className="card-body">
         <h5 className="card-title">
           <i className="bi bi-trophy-fill"></i> 
-          <span> {data.name} Activities</span>
+          <span>{data.name} Activities</span>
         </h5>
       </div>
     </div>
