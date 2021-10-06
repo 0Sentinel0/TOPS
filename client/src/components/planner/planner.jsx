@@ -29,17 +29,7 @@ class Planner extends Component {
       })
   }
 
-  // addFlag = goals => {
-  //   let newData = []
-  //   goals.map(goal => {
-  //     return newData.push(
-  //       {...goal, choosen: false}
-  //     )
-  //   })
-  //   return newData
-  // }
-
-  findIndex = (obj) => this.state.selectedGoals.indexOf(obj)
+  findIndex = obj => this.state.selectedGoals.indexOf(obj)
 
   handleChoose = (e, goal) => {
     const myGoals = this.state.selectedGoals.slice(0)
@@ -56,37 +46,10 @@ class Planner extends Component {
       myGoals.splice(this.findIndex(goal), 1)
       this.setState(
         {selectedGoals: myGoals},
-        () => console.log('Current goals:', myGoals)
+        () => console.log('Current goals:', this.state.selectedGoals)
       )
     })()
   }
-
-  /*
-  handleChoose = goal => {
-    const i = this.state.goalsList.indexOf(goal)
-    const currentGoalChoose = this.state.goalsList[i].choosen
-    let newGoal = this.state.goalsList[i]
-    goal.choosen ? 
-      this.setState(
-        {
-          selectedGoals: [this.state.selectedGoals.splice(i, 1)]
-        },
-        () => console.log('state', this.state.selectedGoals)
-      )
-    : 
-    (() => 
-      {
-        newGoal.choosen = !currentGoalChoose
-        this.setState(
-          {
-            selectedGoals: [...this.state.selectedGoals, newGoal]
-          },
-          () => console.log('state', this.state.selectedGoals)
-        )
-      }
-    )()
-    this.forceUpdate()
-  } */
 
   render() {
     const { goalsList, activityList } = this.state
@@ -139,7 +102,7 @@ class Planner extends Component {
                         <li key={activity._id} className="list-group-item">
                           {activity.name} 
                           {
-                            activity.contribu === "on" ?
+                            activity.contribu ?
                             <span className="ms-3">
                               <i className="bi bi-star-fill"></i>
                               <i className="bi bi-star-fill"></i>
@@ -165,16 +128,16 @@ class Planner extends Component {
 }
 
 export default Planner
- /*
-<li id="choose-goals" key={goal._id} className="list-group-item">
-  <div className="form-check">
-    <input 
-      onChange={(e) => this.handleChoose(e.target.value, goal)} className="form-check-input" type="checkbox" id={goal._id} />
-    <label className="form-check-label" htmlFor={goal._id}>
-      {goal.name}
-    </label>
-  </div>
-</li>
+/*
+addFlag = goals => {
+  let newData = []
+  goals.map(goal => {
+    return newData.push(
+      {...goal, choosen: false}
+    )
+  })
+  return newData
+}
 */
 
   // <li onClick={() => this.handleChoose(goal)} 

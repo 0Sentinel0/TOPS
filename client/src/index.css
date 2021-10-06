@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-.list {
+.card-wrap .list {
   max-height: 230px;
   margin-top: 20px;
   overflow-y: auto;
@@ -62,15 +62,14 @@
   background-color: #fdffed;
 }
 
+/* ----- Dialog ----- */
 #dialog-wrap {
   width: 90%;
-  height: 380px;
+  height: 550px;
   position: fixed;
   left: auto;
   top: 110px;
   z-index: 9;
-  /* background-color: #f8f8f8; */
-  padding: 0;
   border: 1px solid gray;
 }
 
@@ -80,8 +79,21 @@
   top: 10px;
 }
 
-/* ------ Media Query ------- */
+#dialog-wrap .card-body {
+  padding: 30px 25px;
+}
 
+#dialog-wrap .list {
+  width: 100%;
+  margin: 10px auto;
+}
+
+#acts-list-dialog .list-group {
+  height: 420px;
+  overflow-y: auto;
+}
+
+/* ------ Media Query ------- */
 @media screen and (max-width: 576px) {
   #home-welcome {
     font-size: 10px;
@@ -99,6 +111,19 @@
 
   .new-item-form {
     padding-top: 30px;
+  }
+
+  #dialog-wrap {
+    height: 380px;
+    padding: 10px;
+  }
+
+  #dialog-wrap .card-body{
+    padding: 5px;
+  }
+
+  #acts-list-dialog .list-group {
+    height: 290px;
   }
 }
 
@@ -118,11 +143,11 @@
     margin: 50px auto 0 auto;
   }
 
-  .list{
+  .card-wrap .list{
     max-height: 280px;
   }
 
-  #dialog-wrap{
+  #dialog-wrap {
     width: 88%;
     top: 150px;
   }
@@ -138,13 +163,13 @@
     margin: 50px auto 0 auto;
   }
 
-  .card{
+  .card-wrap .card{
     max-height: 360px;
   }
 
-  #dialog-wrap{
-    width: 50%;
-    top: 180px;
+  #dialog-wrap {
+    width: 35%;
+    top: 160px;
   }
 }
 

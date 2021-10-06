@@ -5,7 +5,7 @@ import GenericCardItem from './item.jsx'
 class Activity extends Component {
   state = {
     newActivityName: "",
-    contribu: "off",
+    contribu: false,
     activityList: []
   }
 
@@ -54,11 +54,12 @@ class Activity extends Component {
     })
   }
 
-  contribuHandler = veryHigh => {
+  contribuHandler = isVeryHigh => {
     this.setState({
-      contribu: veryHigh
-    })
-    console.log(this.state.contribu)
+      contribu: isVeryHigh
+    },
+    () => console.log(this.state.contribu)
+    )
   }
 
   render() {
@@ -90,7 +91,7 @@ class Activity extends Component {
               
               <div className="form-check form-switch my-3">
                 <label className="form-check-label" htmlFor="activityContibu">Very High Contribution</label>
-                <input onChange={(e) => this.contribuHandler(e.target.value)} className="form-check-input" type="checkbox" id="activityContibu" />
+                <input onChange={(e) => this.contribuHandler(e.target.checked)} className="form-check-input" type="checkbox" id="activityContibu" />
               </div>
               
               <button type="submit" className="btn btn-success d-block mx-auto">Create Activity</button>

@@ -6,11 +6,11 @@ const ActItemInDialog = ({Act, onSelect}) => {
       <div className="form-check">
         <input 
           onChange={(e) => onSelect(e.target.checked, Act)} className="form-check-input" type="checkbox" id={Act._id} />
-        <label className="form-check-label" htmlFor={Act._id}>
+        <label className="form-check-label ms-1" htmlFor={Act._id}>
           {Act.name}
-          <span className="ms-3">
+          <span className="ms-2">
             {
-              Act.contribu === "on" 
+              Act.contribu
               && 
               <>
                 <i className="bi bi-star-fill"></i>

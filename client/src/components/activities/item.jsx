@@ -13,7 +13,7 @@ const GenericCardItem = ({ item, onDelete, onClick }) => {
                 <b>{item.name}</b>
                 <span className="ms-3">
                   {
-                    item.contribu === "on" 
+                    item.contribu
                     && 
                     <>
                       <i className="bi bi-star-fill"></i>

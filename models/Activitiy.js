@@ -2,7 +2,7 @@ import Mongoose from "mongoose";
 
 const ActivitySchema = Mongoose.Schema({
   name: String,
-  contribu: String // on for VERY HIGH, off for HIGH
+  contribu: Boolean // on for VERY HIGH, off for HIGH
 })
 
 const Activity = Mongoose.model('Activity', ActivitySchema)

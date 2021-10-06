@@ -15,7 +15,7 @@ h4 {
   margin-top: 30px;
 }
 
-.list {
+#planner-wrap .list {
   margin: 0;
 }
 
@@ -61,7 +61,7 @@ h4 {
     margin-top: 0;
   }
 
-  .list {
+  #planner-wrap .list {
     width: 100%;
     margin-top: 0;
   }
@@ -81,7 +81,7 @@ h4 {
     margin: 35px auto 0 auto;
   }
 
-  .list {
+  #planner-wrap .list {
     width: 85%;
     margin-top: 0;
   }
