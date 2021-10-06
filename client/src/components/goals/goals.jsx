@@ -7,8 +7,9 @@ class Goals extends Component {
   state = {
     newGoalName: "",
     goalsList: [],
+    ActsList: [],
     showDialog: false,
-    data: {}
+    dialogData: {}
   }
  
   componentDidMount() {
@@ -16,6 +17,15 @@ class Goals extends Component {
       .then(res => {
         const data = this.addLable(res.data)
         this.setState({goalsList: data})
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+      axios.get('/api/activities/')
+      .then(res => {
+        this.setState({ActsList: res.data})
+        console.log('Acts:', res.data)
       })
       .catch(err => {
         console.log(err)
@@ -71,13 +81,13 @@ class Goals extends Component {
     this.setState(
       {
         showDialog: !this.state.showDialog,
-        data: item
+        dialogData: item
       }
     )
   }
 
   render() {
-    const { goalsList } = this.state
+    const { goalsList, ActsList, dialogData } = this.state
     return (
       <div className="info-pane">
         <div className="row gx-5">
@@ -101,15 +111,15 @@ class Goals extends Component {
           { 
             this.state.showDialog 
               && 
-            <Dialog data={this.state.data} onClose={this.toggleDialog} />
+            <Dialog data={dialogData} onClose={this.toggleDialog} actsList={ActsList} />
           }
           
           <section className="new-item-form col-12 col-md-6 col-xl-5">
             <h3><i className="bi bi-plus-square"></i> New Goal</h3>
-            <hr />
             <form onSubmit={this.createGoal}>
               <label htmlFor="goalName">Goal Name</label>
               <input onChange={(e) => this.formHandler(e.target.value)} type="text" id="goalName" className="form-control mt-2" placeholder="Enter the name of goal" />
+              
               <button type="submit" className="btn btn-success d-block mx-auto">
                 Create Goal
               </button>

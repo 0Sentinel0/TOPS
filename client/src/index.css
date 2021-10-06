@@ -58,6 +58,10 @@
   cursor: pointer;
 }
 
+#Acts-Page .list-group-item {
+  background-color: #fdffed;
+}
+
 #dialog-wrap {
   width: 90%;
   height: 380px;
@@ -65,8 +69,9 @@
   left: auto;
   top: 110px;
   z-index: 9;
-  background-color: #ececec;
+  /* background-color: #f8f8f8; */
   padding: 0;
+  border: 1px solid gray;
 }
 
 #dialog-close-button {

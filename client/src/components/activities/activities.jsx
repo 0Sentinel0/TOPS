@@ -64,7 +64,7 @@ class Activity extends Component {
   render() {
     const { activityList } = this.state
     return(
-      <div className="info-pane">
+      <div id="Acts-Page" className="info-pane">
        <div className="row gx-5">
           <section className="card-wrap col-12 col-md-6 col-xl-5">
             <h3><i className="bi bi-joystick"></i> Activity List</h3>
