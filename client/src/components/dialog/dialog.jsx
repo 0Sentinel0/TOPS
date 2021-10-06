@@ -1,6 +1,7 @@
 import React, { Component }  from 'react'
 import ActItemInDialog from "../activities/actItemDialog";
 import '../../index.css'
+// import axios from 'axios';
 
 class Dialog extends Component {
   state = {
@@ -14,17 +15,24 @@ class Dialog extends Component {
     e ?
       this.setState(
         {actsOfCurGoal: [...this.state.actsOfCurGoal, Act]},
-        () => console.log(this.state.actsOfCurGoal)
+        () => this.mapActs(this.state.actsOfCurGoal),
+    
       )
     :
     (() => {
       acts.splice(this.findIndex(Act), 1)
       this.setState(
         {actsOfCurGoal: acts},
-        () => console.log(this.state.actsOfCurGoal)
+        () => this.mapActs(this.state.actsOfCurGoal)
       )
     })()
   }
+
+  mapActs = data => {
+    console.log('mapping:', data)
+    // axios.post('api/goals/')
+  }
+
 
   render() {
     const {data, onClose, actsList} = this.props
