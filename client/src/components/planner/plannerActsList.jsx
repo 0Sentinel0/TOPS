@@ -12,15 +12,15 @@ const ActsListInPlanner = ({ArrForRender}) => {
               <li key={activity._id} className="list-group-item">
                 { activity.name }
                 { activity.contribu ?
-                    <span className="ms-3">
-                      <i className="bi bi-star-fill"></i>
-                      <i className="bi bi-star-fill"></i>
-                      <i className="bi bi-star-fill"></i>
-                    </span>
-                    :
-                    <span className="ms-3">
-                      <i className="bi bi-star-fill"></i>
-                    </span> }
+                <span className="ms-3">
+                  <i className="bi bi-star-fill"></i>
+                  <i className="bi bi-star-fill"></i>
+                  <i className="bi bi-star-fill"></i>
+                </span>
+                :
+                <span className="ms-3">
+                  <i className="bi bi-star-fill"></i>
+                </span> }
               </li>
             )
           })

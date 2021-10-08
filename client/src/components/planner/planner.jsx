@@ -139,25 +139,3 @@ class Planner extends Component {
 }
 
 export default Planner
-/*
-addFlag = goals => {
-  let newData = []
-  goals.map(goal => {
-    return newData.push(
-      {...goal, choosen: false}
-    )
-  })
-  return newData
-}
-*/
-
-  // <li onClick={() => this.handleChoose(goal)} 
-  //   key={goal._id} className="list-group-item">
-  //   {
-  //     selectedGoals.indexOf(goal)> -1 &&
-  //     <span id="flag-wrap">
-  //       <i className="bi bi-bookmark-check-fill"></i>
-  //     </span>
-  //   }
-  //   <span>{goal.name}</span>
-  // </li>
