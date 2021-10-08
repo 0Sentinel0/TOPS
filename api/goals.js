@@ -13,11 +13,19 @@ router.get('/', (req, res) => {
 // POST api/goals/
 router.post('/', (req, res) => {
   const newGoal = new Goal({
-    name: req.body.name
+    name: req.body.name,
+    acts: req.body.acts
   })
 
   newGoal.save()
     .then(goal => res.json(goal))
+})
+
+// PUT api/goals/
+router.put('/:id', (req, res) => {
+  Goal.findByIdAndUpdate(req.params.id, req.body)
+    .then(newGoal => res.json(newGoal))
+    .catch(err => res.status(400).json({success: false}))
 })
 
 // DELETE api/goals/:id

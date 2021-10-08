@@ -26,7 +26,7 @@ class Goals extends Component {
       axios.get('/api/activities/')
       .then(res => {
         this.setState({ActsList: res.data})
-        // console.log('Acts:', res.data)
+        console.log('Acts:', res.data)
       })
       .catch(err => {
         console.log(err)

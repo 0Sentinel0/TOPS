@@ -89,7 +89,7 @@
 }
 
 #acts-list-dialog .list-group {
-  height: 420px;
+  height: 400px;
   overflow-y: auto;
 }
 
@@ -168,7 +168,7 @@
   }
 
   #dialog-wrap {
-    width: 35%;
+    width: 45%;
     top: 160px;
   }
 }

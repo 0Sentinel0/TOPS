@@ -2,19 +2,21 @@ import axios from 'axios'
 import React, { Component }  from 'react'
 import GoalItem from './goal-item'
 import './planner.css'
+import ActsListInPlanner from './plannerActsList'
 
 class Planner extends Component {
   state = {
     goalsList: [],
     activityList: [],
-    selectedGoals: []
+    selectedGoals: [],
+    selectedActs: []
   }
 
   componentDidMount() {
     axios.get('/api/goals/')
       .then(res => {
         this.setState({goalsList: res.data})
-        console.log('Goals: ',this.state.goalsList)
+        // console.log('Goals: ',this.state.goalsList)
       })
       .catch(err => {
         console.log(err)
@@ -31,28 +33,52 @@ class Planner extends Component {
 
   findIndex = obj => this.state.selectedGoals.indexOf(obj)
 
+  rmDuplicates = arr => {
+    const ids = arr.map(item => item._id)
+    const filtered = arr.filter(({_id}, index) => !ids.includes(_id, index + 1))
+    return filtered;
+}
+
   handleChoose = (e, goal) => {
-    const myGoals = this.state.selectedGoals.slice(0)
+    const {selectedGoals, selectedActs} = this.state
+    const myGoals = selectedGoals.slice(0)
     e ? (() => {
       myGoals.push(goal)
       this.setState(
-        {selectedGoals: myGoals},
-        () => console.log('selectedGoals:', myGoals)
+        {
+          selectedGoals: myGoals,
+          selectedActs: this.rmDuplicates(selectedActs.concat(goal.acts))
+        },
+        () => console.log('selectedActs', this.state.selectedActs)
       )
     })()
     :
     (() => {
-      // console.log(this.findIndex(goal))
       myGoals.splice(this.findIndex(goal), 1)
-      this.setState(
-        {selectedGoals: myGoals},
-        () => console.log('Current goals:', this.state.selectedGoals)
-      )
+      console.log('goals', myGoals)
+      if(myGoals[0]){
+        this.setState(
+          {
+            selectedGoals: myGoals,
+            selectedActs: goal.acts
+          },
+          () => console.log('selectedActs', this.state.selectedActs)
+        )
+      } else {
+        this.setState(
+          {
+            selectedGoals: [[]],
+            selectedActs: [[]]
+          },
+          () => console.log('selectedActs', this.state.selectedActs, 'selectedGoal', myGoals)
+        )
+       
+      }
     })()
   }
 
   render() {
-    const { goalsList, activityList } = this.state
+    const { selectedGoals, goalsList, selectedActs } = this.state
     return(
       <div id="planner-wrap">
         <h3>Onboarding Planner</h3>
@@ -93,32 +119,12 @@ class Planner extends Component {
                     Very High
                 </div>
               </div>
-
-              <div className="list card">
-                <ul className="list-group list-group-flush">
-                  {
-                    activityList.map(activity => {
-                      return(
-                        <li key={activity._id} className="list-group-item">
-                          {activity.name} 
-                          {
-                            activity.contribu ?
-                            <span className="ms-3">
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                            </span>
-                            :
-                            <span className="ms-3">
-                              <i className="bi bi-star-fill"></i>
-                            </span>
-                          }
-                        </li>
-                      )
-                    })
-                  }
-                </ul>
-              </div>
+              {/* {
+                selectedGoals[0] ? */}
+                  <ActsListInPlanner ArrForRender={selectedActs} />
+                {/* :
+                <p>No Act</p>
+              } */}
             </section>
           </div>
         </div>
