@@ -1,7 +1,7 @@
-import axios from 'axios'
 import React, { Component }  from 'react'
-import GoalItem from './goal-item'
+import axios from 'axios'
 import './planner.css'
+import GoalItem from './goal-item'
 import ActsListInPlanner from './plannerActsList'
 
 class Planner extends Component {
@@ -39,6 +39,11 @@ class Planner extends Component {
     return filtered;
 }
 
+  // test method
+  // 1. if goals exist in array   goal.innerarray.map((goalob)=> { selectedGoals.indexof(goalob)})  
+  //    2a. if goals exist, remove them from array  selectedGoals.
+  //    2b. if goals does not exist, add them into the array i.e. [...a1, ...a2]
+    
   handleChoose = (e, goal) => {
     const {selectedGoals, selectedActs} = this.state
     const myGoals = selectedGoals.slice(0)
@@ -67,8 +72,8 @@ class Planner extends Component {
       } else {
         this.setState(
           {
-            selectedGoals: [[]],
-            selectedActs: [[]]
+            selectedGoals: [],
+            selectedActs: []
           },
           () => console.log('selectedActs', this.state.selectedActs, 'selectedGoal', myGoals)
         )
@@ -119,12 +124,12 @@ class Planner extends Component {
                     Very High
                 </div>
               </div>
-              {/* {
-                selectedGoals[0] ? */}
+              {
+                selectedActs[0] ?
                   <ActsListInPlanner ArrForRender={selectedActs} />
-                {/* :
-                <p>No Act</p>
-              } */}
+                :
+                  <p>No Act</p>
+              }
             </section>
           </div>
         </div>
