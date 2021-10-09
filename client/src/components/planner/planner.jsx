@@ -31,7 +31,8 @@ class Planner extends Component {
       })
   }
 
-  findIndex = obj => this.state.selectedGoals.indexOf(obj)
+  findGoalIndex = Goal => this.state.selectedGoals.indexOf(Goal)
+	findActIndex = Act => this.state.selectedActs.indexOf(Act)
 
   rmDuplicates = arr => {
     const ids = arr.map(item => item._id)
@@ -39,10 +40,13 @@ class Planner extends Component {
     return filtered;
 }
 
-  // test method
-  // 1. if goals exist in array   goal.innerarray.map((goalob)=> { selectedGoals.indexof(goalob)})  
-  //    2a. if goals exist, remove them from array  selectedGoals.
-  //    2b. if goals does not exist, add them into the array i.e. [...a1, ...a2]
+	rmActs = actsArr => {
+		let selectedActsArr = this.state.selectedActs
+		actsArr.map(act => {
+			return selectedActsArr.splice(this.findActIndex(act), 1)
+		})
+		return selectedActsArr
+	}
     
   handleChoose = (e, goal) => {
     const {selectedGoals, selectedActs} = this.state
@@ -59,7 +63,7 @@ class Planner extends Component {
     })()
     :
     (() => {
-      myGoals.splice(this.findIndex(goal), 1)
+      myGoals.splice(this.findGoalIndex(goal), 1)
       console.log('goals', myGoals)
       if(myGoals[0]){
         this.setState(
@@ -81,14 +85,36 @@ class Planner extends Component {
       }
     })()
   }
+  // test method
+  // 1. if goals exist in array   goal.innerarray.map((goalob)=> { selectedGoals.indexof(goalob)})  
+  //    2a. if goals exist, remove them from array  selectedGoals.
+  //    2b. if goals does not exist, add them into the array i.e. [...a1, ...a2]
+
+  handler = goal => {
+  	const { selectedGoals, selectedActs } = this.state
+    selectedGoals.indexOf(goal) === -1 ?
+      this.setState(
+        {
+          selectedGoals: [...selectedGoals, goal],
+          selectedActs: this.rmDuplicates(selectedActs.concat(goal.acts))
+        }
+      )
+  	:
+		  this.setState(
+				{
+					selectedGoals: selectedGoals.splice(this.findGoalIndex(goal), 1),
+					selectedActs: this.rmActs(goal.acts)
+				},
+				() => console.log('selectedActs', selectedActs, ' selectedGoal', selectedGoals)
+			)
+  }
 
   render() {
-    const { selectedGoals, goalsList, selectedActs } = this.state
+    const { goalsList, selectedActs } = this.state
     return(
       <div id="planner-wrap">
         <h3>Onboarding Planner</h3>
         <hr />
-
         <div className="row w-100">
           <div id="goals-list-wrap" className="col-12 col-sm-6">
             <section className="planner-card card-wrap">
@@ -99,7 +125,7 @@ class Planner extends Component {
                 <ul className="list-group list-group-flush">
                   {
                     goalsList.map(goal => 
-                      <GoalItem goal={goal} onSelect={this.handleChoose} key={goal._id} />
+                      <GoalItem goal={goal} onSelect={this.handler} key={goal._id} />
                     )
                   }
                 </ul>
