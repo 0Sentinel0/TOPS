@@ -20,7 +20,7 @@ h4 {
 }
 
 .list-group-item {
-  height: 50px;
+  min-height: 50px;
   cursor: pointer;
   background-color: #f7f7f7;
 }
@@ -28,6 +28,9 @@ h4 {
 .form-check input:hover, label:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+#choose-goals {
+  padding: 15px 2px 15px 15px;
 }
 
 #choose-goals label {
@@ -82,7 +85,7 @@ h4 {
   }
 
   #planner-wrap .list {
-    width: 85%;
+    width: 90%;
     margin-top: 0;
   }
 }

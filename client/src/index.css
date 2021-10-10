@@ -89,7 +89,7 @@
 }
 
 #acts-list-dialog .list-group {
-  height: 400px;
+  max-height: 230px;
   overflow-y: auto;
 }
 

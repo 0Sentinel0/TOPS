@@ -158,6 +158,11 @@ class Planner extends Component {
               }
             </section>
           </div>
+
+          <section className="col-12 my-2 mt-md-5 text-center">
+            <button className="btn btn-success" type="submit">Submit</button>
+            <a href="/" className="btn btn-secondary ms-3">Exit</a>
+          </section>
         </div>
       </div>
     )

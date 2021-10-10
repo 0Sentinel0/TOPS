@@ -26,9 +26,12 @@ const GenericCardItem = ({ item, onDelete, onClick }) => {
           }
         </div>
         <div className="col-1 p-0">
-          <span onClick={() => onDelete(item._id)} style={{cursor: 'pointer', color: 'red'}}>
-            <i className="bi bi-trash-fill"></i>
-          </span>
+          {
+            onDelete && 
+            <span onClick={() => onDelete(item._id)} style={{cursor: 'pointer', color: 'red'}}>
+              <i className="bi bi-trash-fill"></i>
+            </span>
+          }
         </div>
       </div>
     </li>

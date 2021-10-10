@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Navbar from './components/navbar/navbar';
 import Planner from './components/planner/planner';
 import Home from './components/home/home';
-import InfoForm from './components/forms/form';
+import OnboarderForm from './components/forms/onboarderForm';
 import Goals from './components/goals/goals';
 import Activity from './components/activities/activities';
 
@@ -18,7 +18,7 @@ function App() {
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/Planner" component={Planner} />
-            <Route path="/OrgInfo" component={InfoForm} />
+            <Route path="/Onboarder" component={OnboarderForm} />
             <Route path="/Goals" component={Goals} />
             <Route path="/Activities" component={Activity} />
           </Switch>

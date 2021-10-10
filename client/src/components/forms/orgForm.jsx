@@ -2,13 +2,7 @@ import React, { Component } from 'react'
 import './form.css'
 import GenericIput from './input'
 
-class InfoForm extends Component {
-  // {
-  //   inputName: '',
-  //   label: '',
-  //   descrip: '',
-  //   type: 'text'
-  // },
+class OrgInfoForm extends Component {
   state = {
     orgForm: [
       {
@@ -37,43 +31,16 @@ class InfoForm extends Component {
         label: 'Is there a qualified suitable mentor available for the new employee?',
         type: 'checkbox'
       },
-
     ],
-    teamForm: [
-      {
-        inputName: 'teamLeader',
-        label: 'Who is the team leader',
-        descrip: '',
-        type: 'text'
-      },
-      {
-        inputName: '',
-        label: 'What are the main tasks expected of the new team member?',
-        descrip: '',
-        type: 'text'
-      },
-      {
-        inputName: '',
-        label: 'What are the main programming languages the team uses?',
-        descrip: '',
-        type: 'text'
-      },
-    ]
-  }
-
-  inputHandler = (inputValue, name) => {
-    // console.log(inputValue)
-    console.log(name)
   }
 
   render() {
-    return (
+    return(
       <div id="formpage-outerwrap">
         <h3>Organisation Information</h3>
         <hr />
         <p>Please fill in the following form to generate new onboarding schedule:</p>
 
-        {/* Org Form */}
         <form>
           {
             this.state.orgForm.map(input => (
@@ -86,4 +53,4 @@ class InfoForm extends Component {
   }
 }
 
-export default InfoForm
+export default OrgInfoForm

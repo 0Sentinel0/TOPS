@@ -19,11 +19,11 @@ class Home extends Component {
           <div id="home-buttons" className="mt-5">
             <a href="/Planner" className="btn btn-success d-block mx-auto" >
               <i className="bi bi-plus-circle"></i> 
-              <span className="ms-2">New Onboarding Process</span>
+              <span className="ms-3">New Onboarding Plan</span>
             </a>
-            <a href="/" className="btn btn-primary d-block mx-auto mt-3 mt-lg-4">
+            <a href="/Onboarder" className="btn btn-primary d-block mx-auto mt-3 mt-lg-4">
               <i className="bi bi-card-list"></i>
-              <span className="ms-2">View Ongoing Schdeule</span>
+              <span className="ms-2">Capture Onboarder Info</span>
             </a>
           </div>
         </div>

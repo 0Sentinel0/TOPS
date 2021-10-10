@@ -7,7 +7,7 @@ const GoalItem = ({goal, onSelect}) => {
         <input 
           onChange={() => onSelect(goal)} className="form-check-input" type="checkbox" id={goal._id} />
         <label className="form-check-label" htmlFor={goal._id}>
-          {goal.name}
+          <b>{goal.name}</b>
         </label>
       </div>
     </li>
