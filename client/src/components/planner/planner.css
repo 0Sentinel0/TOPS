@@ -42,6 +42,16 @@ h4 {
   margin-right: 10px;
 }
 
+.No-act {
+  color: #ff5b5b;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20px;
+  padding: 15px 1px;
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+}
+
 @media screen and (max-width: 576px) {
   h4 {
     height: auto;

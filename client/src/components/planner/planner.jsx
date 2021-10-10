@@ -145,7 +145,12 @@ class Planner extends Component {
                 selectedActs[0] ?
                   <ActsListInPlanner ArrForRender={selectedActs} />
                 :
-                  <p>No Act</p>
+                  <>
+                    <p className="No-act">
+                      No Activities <br />
+                      Select From Goals List To View Corresponding Activities
+                    </p>
+                  </>
               }
             </section>
           </div>

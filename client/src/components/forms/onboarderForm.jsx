@@ -108,7 +108,7 @@ class OnboarderForm extends Component {
           <h6 className="pt-2"><b>Onborder Form</b></h6>
           <form id="onboarder-form">
             <p style={{fontSize: '10px'}}>
-              <i>How familiar are you with the following skill aera?</i>
+              <i>How familiar are you with the following skill aera adopted by Team A?</i>
             </p>
             {
               onborderFormFields.map(question => {
