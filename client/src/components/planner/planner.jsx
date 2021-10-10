@@ -14,21 +14,12 @@ class Planner extends Component {
 
   componentDidMount() {
     axios.get('/api/goals/')
-      .then(res => {
-        this.setState({goalsList: res.data})
-        // console.log('Goals: ',this.state.goalsList)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      .then(res => {this.setState({goalsList: res.data})})
+      .catch(err => {console.log(err)})
 
     axios.get('/api/activities/')
-      .then(res => {
-        this.setState({activityList: res.data})
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      .then(res => {this.setState({activityList: res.data})})
+      .catch(err => {console.log(err)})
   }
 
   findGoalIndex = Goal => this.state.selectedGoals.indexOf(Goal)
@@ -125,7 +116,7 @@ class Planner extends Component {
                 <ul className="list-group list-group-flush">
                   {
                     goalsList.map(goal => 
-                      <GoalItem goal={goal} onSelect={this.handler} key={goal._id} />
+                      <GoalItem goal={goal} onSelect={this.handleChoose} key={goal._id} />
                     )
                   }
                 </ul>

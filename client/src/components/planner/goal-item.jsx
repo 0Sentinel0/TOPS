@@ -5,7 +5,7 @@ const GoalItem = ({goal, onSelect}) => {
     <li id="choose-goals" key={goal._id} className="list-group-item">
       <div className="form-check">
         <input 
-          onChange={() => onSelect(goal)} className="form-check-input" type="checkbox" id={goal._id} />
+          onChange={(e) => onSelect(e.target.checked, goal)} className="form-check-input" type="checkbox" id={goal._id} />
         <label className="form-check-label" htmlFor={goal._id}>
           <b>{goal.name}</b>
         </label>
