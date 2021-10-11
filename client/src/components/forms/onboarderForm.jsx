@@ -41,74 +41,91 @@ class OnboarderForm extends Component {
     const {onborderFormFields} = this.state
     return (
       <div id="formpage-outerwrap">
-        <div className="alert alert-success alert-dismissible fade show" role="alert">
-          <i className="bi bi-check-circle"></i>&nbsp;
-          The onboarder is assigned to join
-            <span id="team-name"> Team A</span>
-          <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
         <h3>Onboarder Information</h3>
         <hr />
 
         <section id="onborder-form-wrap">
-          <div className="tech-profile">
-            <h6><b>Team A Tech Profile</b></h6>
+          <div className="alert alert-success alert-dismissible fade show" role="alert">
+            <i className="bi bi-check-circle"></i>&nbsp;
+            The onboarder Tom is assigned to join
+              <span id="team-name"> Team A</span>
+            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
 
-            <div className="tech-badge">
-              Agile Method 
-              <span className="badge rounded-pill bg-success">
-                Kanban
-              </span>
+          <div className="profiles row">
+            <div className="col-12 col-md-8">
+              <h6><b>Team A Tech Profile</b></h6>
+              <section className="tech-profile">
+                <div className="tech-badge">
+                  Agile Method 
+                  <span className="badge rounded-pill bg-success">
+                    Kanban
+                  </span>
+                </div>
+                <div className="tech-badge">
+                  Architectural Style 
+                  <span className="badge rounded-pill bg-success">
+                    Microservices
+                  </span>
+                </div>
+                <div className="tech-badge">
+                  IDE/Editor 
+                  <span className="badge rounded-pill bg-success">
+                    VS Code
+                  </span>
+                </div>
+                <div className="tech-badge">
+                  Version Control 
+                  <span className="badge rounded-pill bg-success">
+                    Git
+                  </span>
+                </div>
+                <div className="tech-badge">
+                  Method 
+                  <span className="badge rounded-pill bg-success">
+                    Mob
+                  </span>
+                </div>
+                <div className="tech-badge">
+                  Framework 
+                  <span className="badge rounded-pill bg-success">
+                    Angular
+                  </span>
+                </div>
+                <div className="tech-badge">
+                  Language 
+                  <span className="badge rounded-pill bg-success">
+                    TypeScript
+                  </span>
+                </div>
+                <div className="tech-badge">
+                  Database 
+                  <span className="badge rounded-pill bg-success">
+                    MongoDB
+                  </span>
+                </div>
+              </section>
             </div>
-            <div className="tech-badge">
-              Architectural Style 
-              <span className="badge rounded-pill bg-success">
-                Microservices
-              </span>
-            </div>
-            <div className="tech-badge">
-              IDE/Editor 
-              <span className="badge rounded-pill bg-success">
-                VS Code
-              </span>
-            </div>
-            <div className="tech-badge">
-              Version Control 
-              <span className="badge rounded-pill bg-success">
-                Git
-              </span>
-            </div>
-            <div className="tech-badge">
-              Method 
-              <span className="badge rounded-pill bg-success">
-                Mob
-              </span>
-            </div>
-            <div className="tech-badge">
-              Framework 
-              <span className="badge rounded-pill bg-success">
-                Angular
-              </span>
-            </div>
-            <div className="tech-badge">
-              Language 
-              <span className="badge rounded-pill bg-success">
-                TypeScript
-              </span>
-            </div>
-            <div className="tech-badge">
-              Database 
-              <span className="badge rounded-pill bg-success">
-                MongoDB
-              </span>
+
+            <div className="onboarder-profile-wrap col-12 col-md-4">
+              <h6><b>Onboarder Profile</b></h6>
+              <div className="onboarder-profile">
+                <p className="user-logo m-0">
+                  <i class="bi bi-person-circle"></i>
+                  &nbsp;Tom
+                </p>
+                <p className="ms-2">
+                  Gender: Male <br /> Age: 25 <br /> Role: Frontend Developer
+                </p>
+              </div>
             </div>
           </div>
           <hr />
 
-          <h6 className="pt-2"><b>Onborder Form</b></h6>
+          <h6 className="pt-2"><b>Onborder Tech Skills</b></h6>
           <form id="onboarder-form">
             <p style={{fontSize: '10px'}}>
-              <i>How familiar are you with the following skill aera?</i>
+              <i>How familiar are you with the following skill aera adopted by Team A?</i>
             </p>
             {
               onborderFormFields.map(question => {

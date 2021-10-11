@@ -18,23 +18,37 @@
 }
 
 .tech-profile {
-  max-height: 150px;
+  max-height: 160px;
   overflow-y: auto;
   padding: 10px 10px 10px 10px;
-  border: 2px solid #c7c7c7;
+  border: 1px solid #c7c7c7;
   border-radius: 8px;
   margin-bottom: 25px;
 }
 
 .tech-badge {
   width: 200px;
-  margin: 10px 20px 10px 0;
+  margin: 10px 0px 10px 0;
   font-size: 10px;
   display: inline-block;
 }
 
 .tech-badge .badge {
   margin-left: 3px;
+}
+
+.onboarder-profile {
+  padding: 1px 15px;
+  color: #585858;
+}
+
+.user-logo {
+  font-size: 40px;
+}
+
+.profiles {
+  width: 100%;
+  margin: 0 auto;
 }
 
 #onborder-form-wrap {
@@ -59,7 +73,13 @@
   color: #555555;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1200px) {
+  .user-logo {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 992px) {
   #formpage-outerwrap {
     width: 60%;
     margin: 30px auto 0 auto;
