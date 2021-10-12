@@ -103,7 +103,7 @@ class Planner extends Component {
   render() {
     const { goalsList, selectedActs } = this.state
     return(
-      <div id="planner-wrap">
+      <div id="planner-wrap" title="planner">
         <h3>Onboarding Planner</h3>
         <hr />
         <div className="row w-100">

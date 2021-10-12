@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import SupportImag from './support.png'
 
 class Home extends Component {
-  newProcess() {
-    
-  }
-
   render() {
     return (
-      <div id="home-wrap">
+      <div id="home-wrap" title="homePage">
         <div id="honme-inner-wrap">
           <div className="w-50 mx-auto">
             <img src={SupportImag} width="100%" height="auto" alt="img"/>
